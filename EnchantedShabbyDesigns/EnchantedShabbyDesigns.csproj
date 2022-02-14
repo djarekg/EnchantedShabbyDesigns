@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <SpaRoot>ClientApp\</SpaRoot>
+    <SpaProxyServerUrl>https://localhost:44434</SpaProxyServerUrl>
+    <SpaProxyLaunchCommand>npm start</SpaProxyLaunchCommand>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Esd</RootNamespace>
+  </PropertyGroup>
+
+  <!-- <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="6.0.1" />
+  </ItemGroup> -->
+
+  <ItemGroup>
+    <PackageReference Include="DotNetCore.AspNetCore" Version="16.14.0" />
+    <PackageReference Include="DotNetCore.IoC" Version="16.14.0" />
+    <PackageReference Include="DotNetCore.Logging" Version="16.14.0" />
+    <PackageReference Include="DotNetCore.Domain" Version="16.14.0" />
+    <PackageReference Include="DotNetCore.Security" Version="16.14.0" />
+    <PackageReference Include="DotNetCore.EntityFrameworkCore" Version="16.14.0" />
+    <PackageReference Include="DotNetCore.Objects" Version="16.14.0" />
+    <PackageReference Include="DotNetCore.Validation" Version="16.14.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.1">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+</Project>
