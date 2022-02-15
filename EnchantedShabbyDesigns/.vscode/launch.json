@@ -1,8 +1,31 @@
 {
     "version": "0.2.0",
+    "compounds": [
+        {
+            "name": "angular/aspnet",
+            "configurations": [
+                "aspnet",
+                "edge"
+            ]
+        }
+    ],
     "configurations": [
         {
-            "name": "Angular",
+            "name": "edge",
+            "request": "launch",
+            "type": "pwa-msedge",
+            "url": "http://localhost:4200",
+            "webRoot": "${workspaceRoot}/ClientApp/apps/esd",
+            "sourceMapPathOverrides": {
+                "webpack:/*": "${webRoot}/*",
+                "/./*": "${webRoot}/*",
+                "/src/*": "${webRoot}/*",
+                "/*": "*",
+                "/./~/*": "${webRoot}/node_modules/*"
+            }
+        },
+        {
+            "name": "aspnet",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
@@ -14,7 +37,8 @@
                 "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
             },
             "env": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "http://localhost:4200"
             }
         },
         {
@@ -36,7 +60,8 @@
                 "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
             },
             "env": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "http://localhost:4200"
             },
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"

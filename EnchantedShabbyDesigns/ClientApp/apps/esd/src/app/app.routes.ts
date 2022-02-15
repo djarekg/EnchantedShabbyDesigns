@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { AppGuard } from './app.guard';
 import { AppLayoutComponent, AppLayoutMainComponent } from './layouts';
+import { AppGuard } from './shared/guards';
 
 export const ROUTES: Routes = [
   {
@@ -21,6 +21,13 @@ export const ROUTES: Routes = [
     component: AppLayoutMainComponent,
     canActivate: [AppGuard],
     children: [
+      {
+        path: 'login',
+        loadChildren: () =>
+          import('./pages/signin/signin.module').then(
+            (module) => module.AppSigninModule
+          ),
+      },
       {
         path: 'home',
         loadChildren: () =>

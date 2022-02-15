@@ -16,14 +16,7 @@
   </ItemGroup> -->
 
   <ItemGroup>
-    <PackageReference Include="DotNetCore.AspNetCore" Version="16.14.0" />
-    <PackageReference Include="DotNetCore.IoC" Version="16.14.0" />
-    <PackageReference Include="DotNetCore.Logging" Version="16.14.0" />
-    <PackageReference Include="DotNetCore.Domain" Version="16.14.0" />
-    <PackageReference Include="DotNetCore.Security" Version="16.14.0" />
-    <PackageReference Include="DotNetCore.EntityFrameworkCore" Version="16.14.0" />
-    <PackageReference Include="DotNetCore.Objects" Version="16.14.0" />
-    <PackageReference Include="DotNetCore.Validation" Version="16.14.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="6.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.1">
       <PrivateAssets>all</PrivateAssets>

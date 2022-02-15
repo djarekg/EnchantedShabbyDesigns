@@ -1,31 +1,40 @@
-using DotNetCore.AspNetCore;
-using DotNetCore.Logging;
 using Esd;
 
 var builder = WebApplication.CreateBuilder();
 
-builder.Host.UseSerilog();
+// builder.Host.UseSerilog();
 
 builder.Services.AddSecurity();
 builder.Services.AddResponseCompression();
-builder.Services.AddControllers().AddJsonOptions().AddAuthorizationPolicy();
-builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddControllersWithViews();
+// builder.Services.AddControllers().AddJsonOptions().AddAuthorizationPolicy();
+// builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-// builder.Services.AddSpa();
-builder.Services.AddContext();
-builder.Services.AddServices();
+builder.Services.AddSpa();
+// builder.Services.AddContext();
+// builder.Services.AddServices();
 
-var application = builder.Build();
+var app = builder.Build();
 
-application.UseException();
-application.UseHttps();
-application.UseRouting();
-application.UseResponseCompression();
-application.UseAuthentication();
-application.UseAuthorization();
-application.UseEndpointsMapControllers();
-application.UseSwagger();
-application.UseSwaggerUI();
-// application.UseSpa();
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
+}
 
-application.Run();
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+
+// app.UseException();
+// app.UseHttps();
+app.UseRouting();
+app.UseResponseCompression();
+app.UseAuthentication();
+app.UseAuthorization();
+// app.UseEndpointsMapControllers();
+app.UseSwagger();
+app.UseSwaggerUI();
+app.UseSpa();
+
+app.Run();

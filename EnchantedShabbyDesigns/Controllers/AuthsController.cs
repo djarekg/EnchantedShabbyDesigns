@@ -1,4 +1,3 @@
-using DotNetCore.AspNetCore;
 using Esd.Models;
 using Esd.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -16,5 +15,5 @@ public sealed class AuthsController : ControllerBase
 
     [AllowAnonymous]
     [HttpPost]
-    public IActionResult SignIn(SignInModel model) => _authService.SignInAsync(model).ApiResult();
+    public IActionResult SignIn(SignInModel model) => Ok(_authService.SignInAsync(model));
 }

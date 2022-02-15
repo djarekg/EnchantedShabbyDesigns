@@ -1,5 +1,4 @@
 using System.Reflection;
-using DotNetCore.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,5 +10,5 @@ namespace Esd.Controllers;
 public sealed class DiagnosticsController : ControllerBase
 {
     [HttpGet("datetime")]
-    public DateTime DateTime() => Assembly.GetExecutingAssembly().FileInfo().LastWriteTime;
+    public DateTime DateTime() => new FileInfo(Assembly.GetExecutingAssembly().Location).LastWriteTime;
 }

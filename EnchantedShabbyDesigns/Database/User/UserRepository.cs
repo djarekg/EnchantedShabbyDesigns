@@ -1,5 +1,4 @@
-using DotNetCore.EntityFrameworkCore;
-using DotNetCore.Objects;
+using Esd.Database.Repository;
 using Esd.Domain;
 using Esd.Models;
 using Microsoft.EntityFrameworkCore;
@@ -17,12 +16,9 @@ public sealed class UserRepository : EFRepository<User>, IUserRepository
 
     public Task<UserModel> GetModelAsync(long id)
     {
+#pragma warning disable 8619
         return Queryable.Where(UserExpression.Id(id)).Select(UserExpression.Model).SingleOrDefaultAsync();
-    }
-
-    public Task<Grid<UserModel>> GridAsync(GridParameters parameters)
-    {
-        return Queryable.Select(UserExpression.Model).GridAsync(parameters);
+#pragma warning restore 8619
     }
 
     public async Task<IEnumerable<UserModel>> ListModelAsync()

@@ -1,9 +1,9 @@
 using Architecture.Model;
-using DotNetCore.EntityFrameworkCore;
 using DotNetCore.Objects;
 using DotNetCore.Results;
 using DotNetCore.Validation;
 using Esd.Database;
+using Esd.Database.Repository;
 using Esd.Domain;
 using Esd.Models;
 
@@ -74,14 +74,12 @@ public sealed class UserService : IUserService
 
     public async Task<DotNetCore.Results.IResult> InactivateAsync(long id)
     {
-        User user = new() { Id = id };
+        var user = await _userRepository.GetAsync(id);
 
         user.Inactivate();
 
         await _userRepository.UpdateStatusAsync(user);
-
         await _unitOfWork.SaveChangesAsync();
-
         return Result.Success();
     }
 

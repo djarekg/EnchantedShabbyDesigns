@@ -1,5 +1,4 @@
-using DotNetCore.Objects;
-using DotNetCore.Repositories;
+using Esd.Database.Repository;
 using Esd.Domain;
 using Esd.Models;
 
@@ -10,8 +9,6 @@ public interface IUserRepository : IRepository<User>
     Task<long> GetAuthIdByUserIdAsync(long id);
 
     Task<UserModel> GetModelAsync(long id);
-
-    Task<Grid<UserModel>> GridAsync(GridParameters parameters);
 
     Task<IEnumerable<UserModel>> ListModelAsync();
 

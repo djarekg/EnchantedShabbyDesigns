@@ -1,7 +1,3 @@
-using DotNetCore.AspNetCore;
-using DotNetCore.EntityFrameworkCore;
-using DotNetCore.IoC;
-using DotNetCore.Security;
 using Esd.Database;
 using Esd.Services;
 using Microsoft.EntityFrameworkCore;
@@ -36,6 +32,6 @@ public static class Extensions
 
     public static void UseSpa(this IApplicationBuilder application)
     {
-        application.UseSpaAngular("ClientApp", "start", "http://localhost:4200");
+        application.UseSpaAngular("ClientApp/apps/esd", "start", "http://localhost:4200");
     }
 }

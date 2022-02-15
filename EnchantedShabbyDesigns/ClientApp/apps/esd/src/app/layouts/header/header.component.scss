@@ -1,5 +1,13 @@
-// @import "variables";
+@import "variables";
 
-// header {
-//   background-color: $primary;
-// }
+:host {
+  * {
+    color: #fff;
+    margin: 0;
+  }
+}
+
+header {
+  background-color: $accent;
+  padding: 1rem;
+}

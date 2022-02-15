@@ -1,4 +1,4 @@
-using DotNetCore.Repositories;
+using Esd.Database.Repository;
 using Esd.Domain;
 
 namespace Esd.Database;

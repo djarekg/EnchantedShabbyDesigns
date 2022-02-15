@@ -1,6 +1,4 @@
-﻿using DotNetCore.AspNetCore;
-using DotNetCore.Objects;
-using Esd.Models;
+﻿using Esd.Models;
 using Esd.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,23 +13,20 @@ public sealed class UsersController : ControllerBase
     public UsersController(IUserService userService) => _userService = userService;
 
     [HttpPost]
-    public IActionResult Add(UserModel model) => _userService.AddAsync(model).ApiResult();
+    public IActionResult Add(UserModel model) => Ok(_userService.AddAsync(model));
 
     [HttpDelete("{id}")]
-    public IActionResult Delete(long id) => _userService.DeleteAsync(id).ApiResult();
+    public IActionResult Delete(long id) => Ok(_userService.DeleteAsync(id));
 
     [HttpGet("{id}")]
-    public IActionResult Get(long id) => _userService.GetAsync(id).ApiResult();
-
-    [HttpGet("grid")]
-    public IActionResult Grid([FromQuery] GridParameters parameters) => _userService.GridAsync(parameters).ApiResult();
+    public IActionResult Get(long id) => Ok(_userService.GetAsync(id));
 
     [HttpPatch("{id}/inactivate")]
-    public IActionResult Inactivate(long id) => _userService.InactivateAsync(id).ApiResult();
+    public IActionResult Inactivate(long id) => Ok(_userService.InactivateAsync(id));
 
     [HttpGet]
-    public IActionResult List() => _userService.ListAsync().ApiResult();
+    public IActionResult List() => Ok(_userService.ListAsync());
 
     [HttpPut("{id}")]
-    public IActionResult Update(UserModel model) => _userService.UpdateAsync(model).ApiResult();
+    public IActionResult Update(UserModel model) => Ok(_userService.UpdateAsync(model));
 }
